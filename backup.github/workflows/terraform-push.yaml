@@ -10,11 +10,10 @@ on:
         type: string
         required: false
         default: '1.5.1'
-  
+
 jobs:
   terraform:
     uses: tf-init-nxp/terraform-reusable-workflow/.github/workflows/terraform-push.yml@main
     with:
       terraform_version: ${{ inputs.terraform_version }}
     secrets: inherit
-

@@ -10,12 +10,11 @@ on:
         type: string
         required: false
         default: '1.5.1'
-  
-  
+
+
 jobs:
   terraform:
     uses: tf-init-nxp/terraform-reusable-workflow/.github/workflows/terraform-pull-request.yml@main
     with:
       terraform_version: $TERRAFORM_VERSION
     secrets: inherit
-
