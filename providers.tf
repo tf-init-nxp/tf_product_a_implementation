@@ -1,16 +1,17 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "3.61.0"
-    }
-  }
-  backend "azurerm" {
-    use_oidc = false
-  }
-}
+#terraform {
+#  required_providers {
+#    azurerm = {
+#      source  = "hashicorp/azurerm"
+#      version = "3.65.0"
+#    }
+#    helm = {
+#      source  = "hashicorp/helm"
+#      version = "2.10.1"
+#    }
+#  }
+#}
 
-provider "azurerm" {
-  # Configuration options
-  features {}
-}
+#provider "azurerm" {
+#  # Configuration options
+#  features {}
+#}
