@@ -53,26 +53,33 @@ variable "postgresql_allowed_cidrs" {
 variable "aks_enable" {
   description = "Enable AKS Creation"
   type        = bool
-  default     = true
+  default     = false
 }
 
 
 variable "keyvault_enable" {
   description = "Enable KeyVault Creation"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "postgresql_flexible_server_enable" {
   description = "Enable Postgresql Flexible Server Creation"
   type        = bool
-  default     = true
+  default     = false
 }
+
+variable "postgresql_configurations" {
+  description = "PostgreSQL configurations to enable."
+  type        = map(string)
+  default     = {}
+}
+
 
 variable "storage_account_enable" {
   description = "Enable Storage Account Creation"
   type        = bool
-  default     = true
+  default     = false
 }
 
 
