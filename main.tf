@@ -60,16 +60,17 @@ data "azurerm_public_ip" "aks_public_ip" {
 }
 
 module "create_postgresql" {
-  count                  = var.postgresql_flexible_server_enable == true ? 1 : 0
-  source                 = "git::https://github.com/tf-init-nxp/tf_az_postgresql_flexible_server.git?ref=v0.1"
-  resource_group_name    = module.create_resource_group.rg_name
-  location               = var.rg_location
-  extra_tags             = var.tags
-  postgresql_server_name = local.postgresql_server_name
-  administrator_password = random_password.postgresql_administrator_password[0].result
-  administrator_login    = var.postgresql_administrator_login
-  databases              = var.postgresql_databases
-  allowed_cidrs          = local.allowed_cidrs
+  count                     = var.postgresql_flexible_server_enable == true ? 1 : 0
+  source                    = "git::https://github.com/tf-init-nxp/tf_az_postgresql_flexible_server.git?ref=v0.1"
+  resource_group_name       = module.create_resource_group.rg_name
+  location                  = var.rg_location
+  extra_tags                = var.tags
+  postgresql_server_name    = local.postgresql_server_name
+  administrator_password    = random_password.postgresql_administrator_password[0].result
+  administrator_login       = var.postgresql_administrator_login
+  databases                 = var.postgresql_databases
+  allowed_cidrs             = local.allowed_cidrs
+  postgresql_configurations = var.postgresql_configurations
 }
 
 resource "azurerm_key_vault_secret" "key_vault" {
